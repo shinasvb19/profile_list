@@ -5,17 +5,17 @@ import Menu from "../components/Menu";
 
 const PofilePage = () => {
   const { id } = useParams();
-
+  const [page, setPage] = useState(1);
   const [user, setUser] = useState();
   useEffect(() => {
     instance.get("users.json").then((response) => {
       setUser(response.data.users?.find((element) => element.id == id));
     });
   }, [id, user]);
-
+  // console.log(page);
   return (
     <div className="grid grid-cols-4 pt-12 pl-20 pr-10 ">
-      <Menu />
+      <Menu setPage={setPage} />
       <div className=" col-span-3 grid grid-cols-3 max-h-20">
         <div className="font-medium text-xl">profile</div>
         <div className="col-span-2 text-xl font-medium  flex justify-between">
@@ -30,7 +30,13 @@ const PofilePage = () => {
           </span>
         </div>
         <hr className="col-span-3 border-2 mt-4" />
-        <div className="font-medium text-xl  h-[80vh] mt-5 flex flex-col items-center">
+        <div
+          className={
+            page == 1
+              ? "font-medium text-xl  h-[80vh] mt-5 flex flex-col items-center"
+              : "hidden"
+          }
+        >
           <div
             style={{ backgroundImage: `url(${user?.profilepicture})` }}
             className="bg-no-repeat bg-contain w-52 h-52 rounded-full mx-2 mt-6 "
@@ -73,7 +79,13 @@ const PofilePage = () => {
           </div>
         </div>
 
-        <div className="col-span-2 text-xl font-medium mt-5 h-[80vh] flex">
+        <div
+          className={
+            page == 1
+              ? "col-span-2 text-xl font-medium mt-5 h-[80vh] flex"
+              : "hidden"
+          }
+        >
           <hr class=" my-8  h-96 w-1 border-0 ml-20 bg-slate-300"></hr>
           <div className="flex flex-col ml-10">
             <div className=" text-[#cccbcb]">Address:</div>
@@ -102,6 +114,15 @@ const PofilePage = () => {
               </span>
             </div>
           </div>
+        </div>
+        <div
+          className={
+            page == 1
+              ? "hidden"
+              : "text-4xl font-extrabold mx-60 mt-60 col-span-4 text-gray-200"
+          }
+        >
+          COMING SOON
         </div>
       </div>
     </div>

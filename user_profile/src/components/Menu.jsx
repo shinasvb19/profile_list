@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
-const Menu = () => {
+const Menu = ({ setPage }) => {
   const [menu, setMenu] = useState(1);
 
   return (
@@ -11,13 +11,14 @@ const Menu = () => {
             className="flex items-center justify-between w-full"
             onClick={(e) => {
               setMenu(1);
+              setPage(1);
             }}
           >
             <span
               className={
                 menu == 1
-                  ? `mt-3 text-white font-medium`
-                  : "mt-3 text-slate-400 font-medium"
+                  ? `mt-3 text-white font-medium cursor-pointer`
+                  : "mt-3 text-slate-400 font-medium cursor-pointer"
               }
             >
               Profile
@@ -39,13 +40,14 @@ const Menu = () => {
             className="flex items-center justify-between w-full"
             onClick={(e) => {
               setMenu(2);
+              setPage(2);
             }}
           >
             <span
               className={
                 menu == 2
-                  ? `mt-3 text-white font-medium`
-                  : "mt-3 text-slate-400 font-medium"
+                  ? `mt-3 text-white font-medium cursor-pointer`
+                  : "mt-3 text-slate-400 font-medium cursor-pointer"
               }
             >
               Posts
@@ -66,13 +68,14 @@ const Menu = () => {
             className="flex items-center justify-between w-full"
             onClick={(e) => {
               setMenu(3);
+              setPage(3);
             }}
           >
             <span
               className={
                 menu == 3
-                  ? `mt-3 text-white font-medium`
-                  : "mt-3 text-slate-400 font-medium"
+                  ? `mt-3 text-white font-medium cursor-pointer`
+                  : "mt-3 text-slate-400 font-medium cursor-pointer"
               }
             >
               Gallery
@@ -93,13 +96,14 @@ const Menu = () => {
             className="flex items-center justify-between w-full"
             onClick={(e) => {
               setMenu(4);
+              setPage(4);
             }}
           >
             <span
               className={
                 menu == 4
-                  ? `mt-3 text-white font-medium`
-                  : "mt-3 text-slate-400 font-medium"
+                  ? `mt-3 text-white font-medium cursor-pointer`
+                  : "mt-3 text-slate-400 font-medium cursor-pointer"
               }
             >
               Todo
