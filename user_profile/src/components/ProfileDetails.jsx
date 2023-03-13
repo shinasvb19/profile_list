@@ -25,6 +25,7 @@ const ProfileDetails = () => {
               key={user.id}
               name={user.name}
               profilepicture={user.profilepicture}
+              id={user.id}
             />
           ))}
         </div>

@@ -5,7 +5,7 @@ function App() {
   return (
     <Routes>
       <Route index element={<LandingPage />}></Route>
-      <Route path="profile" element={<PofilePage />} />
+      <Route path="profile/:id" element={<PofilePage />} />
     </Routes>
   );
 }
